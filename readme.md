@@ -27,6 +27,23 @@
 - A user-friendly interface built with HTML, CSS, and JavaScript.
 
 ---
+## Tech Stack
+
+### Frontend
+- **HTML**: Structure the website (forms, leaderboard, etc.).
+- **CSS**: Style the website for a clean and modern look.
+- **JavaScript**: Handle interactivity (e.g., form submissions, random prompt generation, and voting).
+
+### Backend (Optional)
+- **Node.js with Express**: For handling API requests and server-side logic.
+- **Firebase Firestore**: For real-time data storage and synchronization.
+
+### AI Integration
+- **OpenAI API**: To generate responses to the worst prompts.
+
+### Hosting
+- **Frontend**: GitHub Pages, Vercel, or Netlify for fast and easy deployment.
+- **Backend (Optional)**: Railway or Render for hosting the backend API.
 
 
 
