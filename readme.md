@@ -27,6 +27,7 @@
 - A user-friendly interface built with HTML, CSS, and JavaScript.
 
 ---
+
 ## Tech Stack
 
 ### Frontend
@@ -44,8 +45,6 @@
 ### Hosting
 - **Frontend**: GitHub Pages, Vercel, or Netlify for fast and easy deployment.
 - **Backend (Optional)**: Railway or Render for hosting the backend API.
-
-
 
 ---
 
@@ -75,4 +74,42 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/worst-ai-prompts.git  
+   git clone https://github.com/your-username/worst-ai-prompts.git
+   ```
+2. Create a branch locally:
+   ```bash
+   git checkout -b your-branch-name
+   ```
+3. Initialize npm:
+   ```bash
+   npm init
+   ```
+4. Commit the `package.json` file:
+   ```bash
+   git add package.json
+   git commit -m "Initialized npm"
+   ```
+5. Avoid committing `node_modules` and `package-lock.json`. Add them to `.gitignore`:
+   ```bash
+   echo "node_modules/" >> .gitignore
+   echo "package-lock.json" >> .gitignore
+   ```
+6. Create a pull request (PR) with the new branch.
+7. Request an AI review by adding the following comment to your PR:
+   ```
+   @CodiumAI-Agent /review
+
+
+---
+
+## Contribution Guidelines
+- Fork the repository and create a feature branch.
+- Make meaningful commits with clear messages.
+- Ensure the code follows best practices.
+- Submit a PR and request a review before merging.
+
+---
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
