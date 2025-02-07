@@ -60,19 +60,3 @@
 - **Frontend Development**: Build a responsive and interactive user interface using HTML, CSS, and JavaScript.
 - **User Interaction**: Implement features like voting, random prompt generation, and real-time updates.
 
----
-
-## How to Use
-
-1. **Submit a Prompt**: Enter your worst AI prompt in the text area and click "Submit".
-2. **Generate a Random Prompt**: Click the "Generate Prompt" button to get a random bad AI prompt.
-3. **Vote on Prompts**: Upvote or downvote prompts on the leaderboard to rank them.
-4. **View AI Responses**: Explore the AI-generated responses to the worst prompts.
-
----
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/worst-ai-prompts.git  
