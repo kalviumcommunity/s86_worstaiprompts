@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/kalviumcommunity/s86_worstaiprompts#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.11.0"
   }
 }
