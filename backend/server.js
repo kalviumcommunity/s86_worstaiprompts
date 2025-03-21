@@ -2,6 +2,18 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const cors = require("cors");
+
+
+
+// ✅ Allow requests from frontend
+app.use(cors());
+
+// ✅ If you want to allow only frontend origin
+// app.use(cors({ origin: "http://localhost:5173" }));
+
+
+
 require('dotenv').config();
 //Mongodb Connection
 const mongoose = require('mongoose');
