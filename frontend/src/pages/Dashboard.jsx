@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import PromptSubmission from '../components/PromptSubmission';
 import RandomPrompt from '../components/RandomPrompt';
-import '../App.css'; // Ensure you have a matching CSS file
+import '../App.css';
 
 const Dashboard = () => {
   const [prompts, setPrompts] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState('');
+
+  const navigate = useNavigate(); // React Router navigation function
 
   const addPrompt = (newPrompt) => {
     setPrompts([...prompts, { 
@@ -42,8 +45,15 @@ const Dashboard = () => {
       </header>
 
       <main>
+        <button className="challenge-button" onClick={() => navigate('/Challenge')}>
+          🚀 Go to Challenges
+        </button>
+        
         <PromptSubmission onSubmit={addPrompt} />
         <RandomPrompt />
+        
+        
+
         <section className="prompts-list">
           <h2>📝 Recent Submissions</h2>
           {prompts.length === 0 ? (
@@ -93,8 +103,6 @@ const Dashboard = () => {
               </div>
             ))
           )}
-
-          0
         </section>
       </main>
 

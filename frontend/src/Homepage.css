@@ -19,6 +19,7 @@ body {
     background: #2c2c2c;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    ;
 }
 
 /* Headings */
@@ -39,11 +40,13 @@ p {
     padding: 10px;
     background: #333;
     border-radius: 8px;
+    color: black;
 }
 
 .features h2 {
     font-size: 1.5rem;
     text-align: center;
+    color: white;
 }
 
 ul {
@@ -86,4 +89,7 @@ button {
 button:hover {
     opacity: 0.8;
     transform: scale(1.05);
+}
+.hlo{
+    color: aqua;
 }

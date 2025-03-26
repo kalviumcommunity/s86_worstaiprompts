@@ -4,8 +4,8 @@ import "../Homepage.css"; // Optional styling
 const Homepage = () => {
     return (
         <div className="homepage-container">
-            <h1>🔥 Welcome to Worst AI Prompts! 🔥</h1>
-            <p>Where the most bizarre, confusing, and hilarious AI prompts come to life! 🤖💬</p>
+            <h1 >🔥 Welcome to Worst AI Prompts! 🔥</h1>
+            <p className="hlo">Where the most bizarre, confusing, and hilarious AI prompts come to life! 🤖💬</p>
 
             <div className="features">
                 <h2>🚀 Features:</h2>

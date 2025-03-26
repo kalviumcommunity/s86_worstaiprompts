@@ -1,37 +1,32 @@
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const OpenAI = require("openai");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const cors = require("cors");
-
-
-
-// ✅ Allow requests from frontend
+// ✅ Allow CORS & JSON Parsing
 app.use(cors());
+app.use(express.json());
 
-// ✅ If you want to allow only frontend origin
-// app.use(cors({ origin: "http://localhost:5173" }));
+// ✅ MongoDB Connection
+mongoose.connect(process.env.MongoDB_URI, {})
+    .then(() => console.log("MongoDB connected"))
+    .catch((err) => console.log("MongoDB connection failed", err));
 
+// ✅ OpenAI Setup
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
+// ✅ Import & Use Routes
+const userRouter = require("./routes/userRouter");
+const challengeRouter = require("./routes/ChallengeRouter");
+app.use("/users", userRouter); // This registers the "/users" route
 
-require('dotenv').config();
-//Mongodb Connection
-const mongoose = require('mongoose');
+app.use("/api/challenges", challengeRouter);
 
-mongoose.connect(process.env.MongoDB_URI,{})
-.then(()=>console.log('Mongodb is connected'))
-.catch((err)=>console.log("Mongodb connection failed",err))
+// ✅ Test Route
+app.get("/ping", (req, res) => res.send("pong"));
 
-//connecting api routers
-app.use(express.json())
-const router = require('./routes/userRouter')
-app.use('/users', router);
-
-
-app.get('/ping', (req, res) => {
-    res.send('pong');
-});
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
