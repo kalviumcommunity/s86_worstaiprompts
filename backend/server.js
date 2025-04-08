@@ -15,8 +15,7 @@ mongoose.connect(process.env.MongoDB_URI, {})
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.log("MongoDB connection failed", err));
 
-// ✅ OpenAI Setup
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
 
 // ✅ Import & Use Routes
 const userRouter = require("./routes/userRouter");

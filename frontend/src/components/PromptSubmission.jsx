@@ -1,6 +1,7 @@
 // components/PromptSubmission.jsx
 import React, { useState } from 'react';
 
+
 function PromptSubmission({ onSubmit }) {
   const [prompt, setPrompt] = useState('');
 

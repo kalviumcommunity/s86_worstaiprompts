@@ -23,11 +23,10 @@ header {
   text-align: center;
   margin-bottom: 50px;
   padding: 40px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgb(203, 234, 109);
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  width: 100%;
-  max-width: 800px;
+ 
 }
 
 header h1 {
@@ -46,13 +45,13 @@ header p {
 
 /* Prompt Submission */
 .prompt-submission {
-  background: white;
+  background: blueviolet;
   padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 20px rgba(222, 7, 7, 0.12);
   margin-bottom: 30px;
-  width: 100%;
-  max-width: 800px;
+  
+ 
 }
 
 .prompt-submission h2 {
@@ -85,4 +84,15 @@ header p {
 
 .generate{
   background-color:red;
+}
+.random-prompt{
+  color: #099f34;
+}
+
+.generated-prompt{
+  background-color: aqua;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(255, 153, 0, 0.12);
+  margin-bottom: 30px;
 }

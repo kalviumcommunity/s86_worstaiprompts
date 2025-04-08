@@ -1,5 +1,6 @@
 // components/RandomPrompt.jsx
 import React, { useState } from 'react';
+import '../index.css';
 
 function RandomPrompt() {
   const badPrompts = [
@@ -7,8 +8,12 @@ function RandomPrompt() {
     "Explain quantum physics to a potato",
     "Describe love as if you’re a malfunctioning robot",
     "Make a recipe for invisible soup",
-    "Sing happy birthday in binary"
-  ];
+    "Sing happy birthday in binary",
+    "Write a breakup letter from a spoon to a fork",
+    " Describe a dance battle between a penguin and a pineapple.",
+    "Give me pickup lines that only work on garden gnomes.",
+    "Create a national anthem for a country founded by ducks."
+    ];
 
   const [currentPrompt, setCurrentPrompt] = useState('');
 
