@@ -8,6 +8,10 @@ const ChallengeForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [editId, setEditId] = useState(null);
+  const [editTitle, setEditTitle] = useState("");
+  const [editChallenge, setEditChallenge] = useState("");
+
   const API_URL = "http://localhost:3000/api/challenges";
 
   const fetchChallenges = async () => {
@@ -17,9 +21,7 @@ const ChallengeForm = () => {
       const response = await fetch(API_URL);
       if (!response.ok) throw new Error("Failed to load challenges");
       const data = await response.json();
-      console.log(data)
       setChallenges(data);
-      
     } catch (err) {
       setError(err.message);
     }
@@ -28,10 +30,9 @@ const ChallengeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('token')
-    if (!token){
-      return 
-    }
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
     if (!title.trim() || !challenge.trim()) return;
 
     const newChallenge = { title, challenge };
@@ -39,11 +40,12 @@ const ChallengeForm = () => {
     try {
       const response = await fetch(API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`},
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
         body: JSON.stringify(newChallenge),
       });
-      console.log(response)
 
       if (!response.ok) throw new Error("Failed to submit challenge");
 
@@ -55,7 +57,6 @@ const ChallengeForm = () => {
     }
   };
 
-  // 🔴 Handle Delete Challenge
   const handleDelete = async (id) => {
     try {
       const response = await fetch(`${API_URL}/${id}`, {
@@ -64,9 +65,38 @@ const ChallengeForm = () => {
 
       if (!response.ok) throw new Error("Failed to delete challenge");
 
-      fetchChallenges(); // Refresh list after deletion
+      fetchChallenges();
     } catch (err) {
       setError(err.message);
+    }
+  };
+
+  const handleEditClick = (c) => {
+    setEditId(c._id);
+    setEditTitle(c.title);
+    setEditChallenge(c.challenge);
+  };
+
+  const handleUpdate = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await fetch(`${API_URL}/${editId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify({ title: editTitle, challenge: editChallenge }),
+      });
+
+      if (!response.ok) throw new Error("Failed to update challenge");
+
+      setEditId(null);
+      setEditTitle("");
+      setEditChallenge("");
+      fetchChallenges();
+    } catch (err) {
+      setError("Error updating challenge: " + err.message);
     }
   };
 
@@ -98,19 +128,35 @@ const ChallengeForm = () => {
       </form>
 
       <h3>Submitted Challenges</h3>
-
       {loading ? <p>Loading challenges...</p> : null}
-      
 
       <ul>
         {challenges.map((c) => (
           <div key={c._id}>
-          <h3>{c.title}</h3>
-          <p>{c.challenge}</p>
-          <p>Created by: {c.createdBy?.name || "Unknown"}</p>
-          
-          <button className="delete-btn" onClick={() => handleDelete(c._id)}>❌ Delete</button>
-        </div>
+            {editId === c._id ? (
+              <>
+                <input
+                  type="text"
+                  value={editTitle}
+                  onChange={(e) => setEditTitle(e.target.value)}
+                />
+                <textarea
+                  value={editChallenge}
+                  onChange={(e) => setEditChallenge(e.target.value)}
+                />
+                <button onClick={handleUpdate}>💾 Save</button>
+                <button onClick={() => setEditId(null)}>❌ Cancel</button>
+              </>
+            ) : (
+              <>
+                <h3>{c.title}</h3>
+                <p>{c.challenge}</p>
+                <p>👤 {c.createdBy?.name || "Unknown"}</p>
+                <button onClick={() => handleEditClick(c)}>✏️ Edit</button>
+                <button onClick={() => handleDelete(c._id)}>❌ Delete</button>
+              </>
+            )}
+          </div>
         ))}
       </ul>
     </div>
