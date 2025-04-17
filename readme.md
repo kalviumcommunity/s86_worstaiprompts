@@ -27,7 +27,6 @@
 - A user-friendly interface built with HTML, CSS, and JavaScript.
 
 ---
-
 ## Tech Stack
 
 ### Frontend
@@ -46,6 +45,8 @@
 - **Frontend**: GitHub Pages, Vercel, or Netlify for fast and easy deployment.
 - **Backend (Optional)**: Railway or Render for hosting the backend API.
 
+
+
 ---
 
 ## Why This Project?
@@ -59,5 +60,4 @@
 - **Frontend Development**: Build a responsive and interactive user interface using HTML, CSS, and JavaScript.
 - **User Interaction**: Implement features like voting, random prompt generation, and real-time updates.
 
----
-
+frontend Deployment Link: https://asapfrontend.netlify.app/
