@@ -1,0 +1,98 @@
+/* App.css */
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #2090c1, #335c70, #099f34);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
+}
+body{
+ background-image: url(assets/image.jpg);
+}
+
+
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 40px;
+  background: rgb(203, 234, 109);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+ 
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+header p {
+  color: #7f8c8d;
+  font-size: 1.2em;
+  margin-top: 5px;
+}
+
+/* Prompt Submission */
+.prompt-submission {
+  background: blueviolet;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(222, 7, 7, 0.12);
+  margin-bottom: 30px;
+  
+ 
+}
+
+.prompt-submission h2 {
+  color: #34495e;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+.prompt-submission textarea {
+  width: 70%;
+  padding: 15px;
+  margin-bottom: 15px;
+  resize: vertical;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prompt-submission textarea:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+}
+
+.submit{
+  background-color: #3bd868;
+
+}
+
+.generate{
+  background-color:red;
+}
+.random-prompt{
+  color: #099f34;
+}
+
+.generated-prompt{
+  background-color: aqua;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(255, 153, 0, 0.12);
+  margin-bottom: 30px;
+}

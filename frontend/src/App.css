@@ -1,0 +1,284 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Container styles */
+.container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Heading */
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Labels */
+label {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+/* Input fields */
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button styles */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Disabled button */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Login/Signup link */
+p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+p a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 15px;
+  display: inline-block;
+  background: #28a745;
+  color: white;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+p a:hover {
+  background: #218838;
+}
+
+/* Homepage Styles */
+.home-container {
+  text-align: center;
+  padding: 50px;
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+.button-group a {
+  margin: 10px;
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.button-group a:hover {
+  background-color: #0056b3;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+  padding: 30px;
+  text-align: center;
+}
+.dashboard{
+  border: 2px solid black;
+  background-color:pink;
+}
+
+
+.dashboard-container h1 {
+  color: #333;
+}
+
+.dashboard-container p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  padding: 10px 20px;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+p{
+  color: black;
+}
+.prompts-list{
+  color: black;
+  background-color: aqua;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(255, 153, 0, 0.12);
+  margin-bottom: 30px;
+}
+.hi{
+  text-align: center;
+}
+
+.challenge-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 50px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+  
+}
+
+h2, h3 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f9f9f9;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+li strong {
+  color: #333;
+}
+
+li em {
+  color: #666;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .challenge-form {
+    padding: 1rem;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+.delete-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background: #cc0000;
+}

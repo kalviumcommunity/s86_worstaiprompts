@@ -1,0 +1,30 @@
+{
+  "name": "s86_worstaiprompts",
+  "version": "1.0.0",
+  "description": "**Worst AI Prompts** is a fun and interactive platform that collects, ranks, and showcases the most bizarre, confusing, and hilarious prompts ever given to AI. Users can submit their own terrible prompts, vote on others' submissions, and explore AI-generated responses to these prompts. The project aims to highlight the quirks and limitations of AI while providing a space for users to laugh and engage with creative (or nonsensical) ideas.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalviumcommunity/s86_worstaiprompts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kalviumcommunity/s86_worstaiprompts/issues"
+  },
+  "homepage": "https://github.com/kalviumcommunity/s86_worstaiprompts#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.11.0",
+    "nodemon": "^3.1.9",
+    "openai": "^4.89.0"
+  }
+}
