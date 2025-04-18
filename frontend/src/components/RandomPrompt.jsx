@@ -12,6 +12,10 @@ function RandomPrompt() {
     "Write a breakup letter from a spoon to a fork",
     " Describe a dance battle between a penguin and a pineapple.",
     "Give me pickup lines that only work on garden gnomes.",
+    "Create a national anthem for a country founded by ducks.",
+    "Write a breakup letter from a spoon to a fork",
+    " Describe a dance battle between a penguin and a pineapple.",
+    "Give me pickup lines that only work on garden gnomes.",
     "Create a national anthem for a country founded by ducks."
     ];
 
