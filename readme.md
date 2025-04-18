@@ -59,5 +59,3 @@
 - **AI Integration**: Gain experience working with the OpenAI API and understanding how AI interprets prompts.
 - **Frontend Development**: Build a responsive and interactive user interface using HTML, CSS, and JavaScript.
 - **User Interaction**: Implement features like voting, random prompt generation, and real-time updates.
-
-frontend Deployment Link: https://asapfrontend.netlify.app/
