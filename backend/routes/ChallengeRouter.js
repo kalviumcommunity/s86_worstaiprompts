@@ -45,6 +45,25 @@ router.get('/:id'),auth,async (req,res) => {
   }
 }
 
+router.get('/post/user/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const challenges = await Challenge.find({ createdBy: id }).populate('createdBy', 'name');
+    res.status(200).json(challenges);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+router.get('/challenges', async (req, res) => {
+  try {
+    const challenges = await Challenge.find().populate('createdBy', 'name');
+    res.status(200).json(challenges);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 router.delete("/:id", async (req, res) => {
     try {
       const deletedChallenge = await Challenge.findByIdAndDelete(req.params.id);
@@ -54,5 +73,17 @@ router.delete("/:id", async (req, res) => {
       res.status(500).json({ message: "Server error" });
     }
   });
+router.put("/:id", async (req, res) => {
+    try {
+      const updateChallenge = await Challenge.findByIdAndUpdate(req.params.id,req.body,{new:true});
+      if (!updateChallenge) return res.status(404).json({ message: "Challenge not found" });
+      res.json({ message: "Challenge deleted successfully" });
+    } catch (error) {
+      res.status(500).json({ message: "Server error" });
+    }
+  });
+
+  
+  
 
 module.exports = router;
