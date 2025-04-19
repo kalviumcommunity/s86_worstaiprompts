@@ -45,6 +45,25 @@ router.get('/:id'),auth,async (req,res) => {
   }
 }
 
+router.get('/post/user/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const challenges = await Challenge.find({ createdBy: id }).populate('createdBy', 'name');
+    res.status(200).json(challenges);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+router.get('/challenges', async (req, res) => {
+  try {
+    const challenges = await Challenge.find().populate('createdBy', 'name');
+    res.status(200).json(challenges);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 router.delete("/:id", async (req, res) => {
     try {
       const deletedChallenge = await Challenge.findByIdAndDelete(req.params.id);

@@ -75,6 +75,26 @@ router.get("/userlist", async (req, res) => {
         res.status(500).json({ msg: "Internal Server Error", error });
     }
 });
+router.get("/userlist/:id", async (req, res) => {
+    try {
+        const userData = await userSchema.findById(req.params.id);
+        if(!userData){
+            return res.status(403).json({message: "User Not Found"})
+        }
+        return res.status(200).json(userData);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: "Internal Server Error", error });
+    }
+});
+router.get("/", async (req, res) => {
+    try {
+      const users = await User.find({}, "_id name");
+      res.json(users);
+    } catch (err) {
+      res.status(500).json({ error: "Failed to fetch users" });
+    }
+  });
 
 
 // 🚀 **Update User**
