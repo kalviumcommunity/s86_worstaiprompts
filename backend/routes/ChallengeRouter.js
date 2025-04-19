@@ -77,13 +77,10 @@ router.put("/:id", async (req, res) => {
     try {
       const updateChallenge = await Challenge.findByIdAndUpdate(req.params.id,req.body,{new:true});
       if (!updateChallenge) return res.status(404).json({ message: "Challenge not found" });
-      res.json({ message: "Challenge deleted successfully" });
+      res.json({ message: "Challenge updated successfully" });
     } catch (error) {
       res.status(500).json({ message: "Server error" });
     }
   });
-
-  
-  
 
 module.exports = router;

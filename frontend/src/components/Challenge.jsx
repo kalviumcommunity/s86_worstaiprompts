@@ -7,11 +7,6 @@ const ChallengeForm = () => {
   const [challenges, setChallenges] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
-  const [users, setUsers] = useState([]);
-  const [selectedUser, setSelectedUser] = useState("");
-  
-  const [editingChallenge, setEditingChallenge] = useState(null); // Track the challenge being edited
 
   const API_URL = "http://localhost:3000/api/challenges";
   const USERS_API_URL = "http://localhost:3000/users/userlist";
@@ -40,7 +35,7 @@ const ChallengeForm = () => {
       const response = await fetch(url);
       if (!response.ok) throw new Error("Failed to load challenges");
       const data = await response.json();
-
+      console.log(data)
       setChallenges(data);
     } catch (err) {
       setError(err.message);
@@ -50,35 +45,22 @@ const ChallengeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("token");
-    if (!token) return;
+    const token = localStorage.getItem('token')
+    if (!token){
+      return 
+    }
     if (!title.trim() || !challenge.trim()) return;
 
     const newChallenge = { title, challenge };
 
     try {
-      let response;
-      if (editingChallenge) {
-        // If editing, send a PUT request
-        response = await fetch(`${API_URL}/${editingChallenge._id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(newChallenge),
-        });
-      } else {
-        // If not editing, send a POST request
-        response = await fetch(API_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(newChallenge),
-        });
-      }
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`},
+        body: JSON.stringify(newChallenge),
+      });
+      console.log(response)
 
       if (!response.ok) throw new Error("Failed to submit challenge");
 
@@ -103,12 +85,6 @@ const ChallengeForm = () => {
     } catch (err) {
       setError(err.message);
     }
-  };
-
-  const handleEdit = (challenge) => {
-    setTitle(challenge.title);
-    setChallenge(challenge.challenge);
-    setEditingChallenge(challenge); // Set the challenge to be edited
   };
 
   useEffect(() => {
@@ -173,21 +149,18 @@ const ChallengeForm = () => {
 
       <h3>Submitted Challenges</h3>
 
-      {loading && <p>Loading challenges...</p>}
+      {loading ? <p>Loading challenges...</p> : null}
+      
 
       <ul>
         {challenges.map((c) => (
           <div key={c._id}>
-            <h3>{c.title}</h3>
-            <p>{c.challenge}</p>
-            <p>Created by: {c.createdBy?.name || "Unknown"}</p>
-            <button className="delete-btn" onClick={() => handleDelete(c._id)}>
-              ❌ Delete
-            </button>
-            <button className="edit-btn" onClick={() => handleEdit(c)}>
-              ✏️ Edit
-            </button>
-          </div>
+          <h3>{c.title}</h3>
+          <p>{c.challenge}</p>
+          <p>Created by: {c.createdBy?.name || "Unknown"}</p>
+          
+          <button className="delete-btn" onClick={() => handleDelete(c._id)}>❌ Delete</button>
+        </div>
         ))}
       </ul>
     </div>
