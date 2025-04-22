@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 import Homepage from "./pages/Homepage";
 import Dashboard from "./pages/Dashboard";
 import ChallengeForm from "./components/Challenge"; // ✅ Import Challenge Form
-
+import UserEntityFilter from './components/UserEntityFilter.jsx';
 const App = () => {
     const isAuthenticated = !!localStorage.getItem("token"); // Check if user is logged in
 
@@ -14,6 +14,7 @@ const App = () => {
                 <Route path="/" element={<Homepage />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/sqltest" element={<UserEntityFilter/>} />
                 <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
                 <Route path="/challenge" element={isAuthenticated ? <ChallengeForm /> : <Navigate to="/login" />} /> 
             </Routes>
