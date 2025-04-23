@@ -9,9 +9,17 @@ require('./Models/associations');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
 
 // ✅ Allow CORS & JSON Parsing
-app.use(cors());
+// CORS setup (if using CORS middleware)
+app.use(cors({
+    origin: "http://localhost:5173", // your frontend
+    credentials: true
+  }));
+  
 app.use(express.json());
 
 // ✅ MongoDB Connection

@@ -12,9 +12,10 @@ router.post("/",auth, async (req, res) => {
       return res.status(400).json({ error: "Title and Challenge text are required" });
     }
 
-    const newChallenge = new Challenge({ title, challenge,createdBy:req.user.userId });
+    const newChallenge = new Challenge({ title, challenge,createdBy:req.user.id });
     // console.log(req.user.userId,createdBy)
     await newChallenge.save();
+    console.log(newChallenge,req.user.id)
     
     res.status(201).json(newChallenge);
   } catch (error) {

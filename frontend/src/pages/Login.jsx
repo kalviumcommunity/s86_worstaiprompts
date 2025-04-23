@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../Login.css';
 
@@ -7,6 +7,18 @@ const Login = () => {
     const [formData, setFormData] = useState({ email: "", password: "" });
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+
+    // ✅ Get email from cookie if available
+    useEffect(() => {
+        fetch("http://localhost:3000/users/get-cookie-email", { credentials: "include" })
+            .then(res => res.json())
+            .then(data => {
+                if (data.email) {
+                    setFormData(prev => ({ ...prev, email: data.email }));
+                }
+            })
+            .catch(() => {}); // Silent fail
+    }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,24 +34,24 @@ const Login = () => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
+                credentials: "include",
             });
 
             const data = await res.json();
             if (!res.ok) throw new Error(data.msg);
 
-            localStorage.setItem("token", data.token); // Store token in localStorage
+            localStorage.setItem("token", data.token);
             setSuccess("Login successful!");
 
-            // Redirect to Dashboard after successful login
-            setTimeout(() => navigate("/dashboard"), 1500);
+            setTimeout(() => navigate("/dashboard"), 1000);
         } catch (err) {
             setError(err.message);
         }
     };
 
     return (
-        <div   className="login-container">
-            <h2>Login </h2>
+        <div className="login-container">
+            <h2>Login</h2>
             {error && <p style={{ color: "red" }}>{error}</p>}
             {success && <p style={{ color: "green" }}>{success}</p>}
             <form onSubmit={handleSubmit}>
@@ -52,4 +64,3 @@ const Login = () => {
 };
 
 export default Login;
-    
