@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import PromptSubmission from '../components/PromptSubmission';
 import RandomPrompt from '../components/RandomPrompt';
 import '../App.css';
-
+import Navbar from '../components/Navbar';
 const Dashboard = () => {
+ 
   const [prompts, setPrompts] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState('');
@@ -39,13 +40,14 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
+      <Navbar />
       <header>
         <h1>📌 AI Prompt Dashboard</h1>
         <p>Submit and explore the most bizarre AI prompts!</p>
       </header>
 
       <main>
-        <button className="challenge-button" onClick={() => navigate('/Challenge')}>
+        <button className="challenge-button" onClick={() => navigate('/challenge')}>
           🚀 Go to Challenges
         </button>
         

@@ -1,0 +1,68 @@
+/* Navbar.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0f172a;
+    padding: 12px 24px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #facc15;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+  
+  .nav-items {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+  }
+  
+  .link:hover {
+    background-color: #1e293b;
+  }
+  
+  .username {
+    font-size: 1rem;
+    color: #a3e635;
+    font-weight: 500;
+  }
+  
+  .logout-btn {
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .logout-btn:hover {
+    background-color: #dc2626;
+  }
+  
